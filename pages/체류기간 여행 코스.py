@@ -47,4 +47,4 @@ def osmnx_gen():
                           route_colors=['blue','red'])
     return(fig)
 
-st.pyplot(base_osmnx_gen())
+st.pyplot(osmnx_gen())
