@@ -28,7 +28,7 @@ busanport_coord=[35.1029191, 129.0407161]
 
 def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
-    return G
+    return ox.plot_graph(G,node_color='black',node_size=5,bgcolor='w')
 
 def osmnx_gen():
     G1=base_osmnx_gen()
