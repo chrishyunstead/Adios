@@ -4,7 +4,7 @@ import pandas as pd
 import osmnx as ox
 import networkx as nx
 from streamlit_folium import st_folium
-
+import folium
 
 restaurant_df_raw=pd.read_excel('data/평점 4이상 맛집리스트.xlsx').drop('Unnamed: 0',axis=1)
 hotel_df_raw=pd.read_excel('data/평점 4이상 숙박업소.xlsx').drop('Unnamed: 0',axis=1)
@@ -57,13 +57,15 @@ def osmnx_gen():
 
     route1=nx.shortest_path(target_point,busan_port_point,restaurant_point)
     route2=nx.shortest_path(target_point,restaurant_point,hotel_point)
-
-    route_map=ox.plot_route_folium(target_point,route1,popup_attribute='length',
-                                   color='blue')
-    folium=ox.plot_route_folium(target_point,route2,
-                                route_map=route_map,
+    folium_start=ox.plot_graph_folium(target_point,color=None)
+    folium_1=ox.plot_route_folium(target_point,route_map=folium_start,
+                                  route=route1,popup_attribute='length',
+                                   color='blue').add_to(folium_start)
+    foliums_2=ox.plot_route_folium(target_point,route2,
+                                route_map=folium_start,
                                 popup_attribute='length',
-                                color='red')
-    return(folium)
+                                color='red').add_to(folium_start)
+    folium.Marker()
+    return(folium_start)
 
 st_folium(osmnx_gen())
