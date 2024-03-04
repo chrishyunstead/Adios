@@ -2,6 +2,9 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import seaborn as sns
+import plotly
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 plt.rcParams['axes.unicode_minus']=False
@@ -25,3 +28,20 @@ popular_ship_goods_23_df['년도']=2023
 
 st.dataframe(popular_ship_goods_18_df,use_container_width=True)
 
+def plotly_gen():
+    fig=make_subplots(rows=2,cols=2,column_titles='년도 분기 선용품 품목')
+    fig.add_trace(go.Bar(x=popular_ship_goods_18_df['품목'],
+                             y=popular_ship_goods_18_df['2018.1분기'],
+                             marker_color='#ffff00'),row=1,col=1)
+    fig.add_trace(go.Bar(x=popular_ship_goods_18_df['품목'],
+                             y=popular_ship_goods_18_df['2018.2분기'],
+                             marker_color='#40e0d0'),row=1,col=2)
+    fig.add_trace(go.Bar(x=popular_ship_goods_18_df['품목'],
+                             y=popular_ship_goods_18_df['2018.3분기'],
+                             marker_color='#ff6600'),row=2,col=1)
+    fig.add_trace(go.Bar(x=popular_ship_goods_18_df['품목'],
+                             y=popular_ship_goods_18_df['2018.4분기'],
+                             marker_color='#7749f5'),row=2,col=2)
+    return fig
+
+st.plotly_chart(plotly_gen())
