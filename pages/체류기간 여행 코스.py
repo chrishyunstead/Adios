@@ -12,7 +12,7 @@ restaurant_type_list=list(set(restaurant_df_raw['구분']))
 restaurant_type_selet=st.selectbox('식당 분류 선택',restaurant_type_list)
 restaurant_df=restaurant_df_raw.query(f"구분=='{restaurant_type_selet}'")\
     .reset_index().drop('index',axis=1)
-st.dataframe(restaurant_df)
+st.dataframe(restaurant_df,use_container_width=True)
 restaurant_select=st.selectbox('식당 선택',restaurant_df['가게명'])
 restaurant_selected_df=restaurant_df.query(f"가게명=='{restaurant_select}'")
 
@@ -20,7 +20,7 @@ hotel_type_list=list(set(hotel_df_raw['구분']))
 hotel_grade_select=st.selectbox('호텔 등급 선택',hotel_type_list)
 hotel_df=hotel_df_raw.query(f"구분=='{hotel_grade_select}'")\
     .reset_index().drop('index',axis=1)
-st.dataframe(hotel_df)
+st.dataframe(hotel_df,use_container_width=True)
 hotel_select=st.selectbox('호텔 선택',hotel_df['업소명'])
 hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")
 
