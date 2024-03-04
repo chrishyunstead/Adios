@@ -4,6 +4,7 @@ import pandas as pd
 import osmnx as ox
 import networkx as nx
 from streamlit_folium import st_folium
+from streamlit_folium import st_folium_chart
 
 
 restaurant_df_raw=pd.read_excel('data/평점 4이상 맛집리스트.xlsx').drop('Unnamed: 0',axis=1)
@@ -60,4 +61,4 @@ def osmnx_gen():
                                 route_color='red')
     return(folium)
 
-st_folium(osmnx_gen())
+st_folium_chart(osmnx_gen())
