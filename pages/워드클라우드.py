@@ -20,4 +20,4 @@ def img_gen():
         else: pass
     return img
 
-st.image(img_gen(),width=900)
+st.image(img_gen(),width=800)
