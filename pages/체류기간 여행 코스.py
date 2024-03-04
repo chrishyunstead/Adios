@@ -36,11 +36,11 @@ restaurant_coord=[restaurant_selected_df['lat'][0],
                   restaurant_selected_df['lng'][0]]
 hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
 
+@st.cache_data
 def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     return G
 
-@st.cache_resource
 def osmnx_gen():
     target_point=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     busan_port_point=\
