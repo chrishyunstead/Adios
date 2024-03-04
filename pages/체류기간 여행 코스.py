@@ -68,4 +68,4 @@ def osmnx_gen():
     return(folium_final)
 
 folium=osmnx_gen()
-st_folium(folium,width=2000)
+st_folium(folium,width=2000,height=1500)
