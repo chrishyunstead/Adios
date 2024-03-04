@@ -63,8 +63,9 @@ def osmnx_gen():
     folium_2=ox.plot_route_folium(target_point,route2,
                                 route_map=folium_1,
                                 popup_attribute='length',
-                                color='red')
+                                color='red',
+                                width=1500)
     
     return(folium_2)
 
-st_folium(osmnx_gen(),width=1500)
+st_folium(osmnx_gen())
