@@ -5,12 +5,6 @@ import seaborn as sns
 import plotly
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import matplotlib.pyplot as plt
-from matplotlib import font_manager, rc
-plt.rcParams['axes.unicode_minus']=False
-f_path='Font/경기천년바탕OTF_BOLD.OTF'
-font_name=font_manager.FontProperties(fname=f_path).get_name()
-rc('font',family=font_name)
 
 st.title('년도 / 분기별 선용품 품목 시각화')
 popular_ship_goods_18_df=pd.read_csv('data/2018년도 분기별 품목 합.csv')
