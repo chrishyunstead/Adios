@@ -36,25 +36,31 @@ st.write(f'P-value가 {round(corr[1],3)}로, 상관계수가 유의미하다고 
 
 def plotly_gen_corr():
     fig=go.Figure()
+    fig.add_trace(go.Scatter(x=ship_stayed_scaled['체류시간'],y=ship_stayed_scaled['화물처리량'],
+                            hovertemplate='<b>년/월:</b> %{text}',
+                            mode='markers',name='실측값',
+                            text=ship_stayed_scaled['년/월']))
+
+    # 추세선을 추가합니다.
     fig.add_trace(go.Scatter(
-        x=ship_stayed_scaled['화물처리량'],y=ship_stayed_scaled['체류시간'],
-        name='실측값',mode='markers'
+        x=ship_stayed_scaled['체류시간'],
+        y=np.poly1d(np.polyfit(ship_stayed_scaled['체류시간'], ship_stayed_scaled['화물처리량'],1))\
+            (ship_stayed_scaled['체류시간']),
+        mode='lines',line=dict(color='red', width=2),
+        name='추세선'
     ))
-    fig.add_trace(go.Scatter(
-        x=ship_stayed_scaled['화물처리량'],
-        y=np.poly1d(np.polyfit(ship_stayed_scaled['화물처리량'],ship_stayed_scaled['체류시간'],1))\
-            (ship_stayed_scaled['화물처리량']),
-        mode='lines',line=dict(color='red'),name='추세선'
-    ))
-    fig.update_layout(title='년/월별 화물처리량 - 체류시간',
-                    xaxis=dict(title='화물처리량'),
-                    yaxis=dict(title='체류시간'),
+
+    fig.update_layout(title='년/월별 화물처리실적 - 체류시간(정규화)',
+                    xaxis=dict(title='체류시간'),
+                    yaxis=dict(title='년/월별 화물처리실적'),
+                    width=600,height=600,
+                    hovermode='x',
                     annotations=[
-                        dict(x=-0.02,
-                            y=1.15,
+                        dict(x=-0.1,
+                            y=1.1,
                             xref='paper',
                             yref='paper',
-                            text=f'상관계수 : {round(corr[0],3)}',
+                            text=f'상관계수: {round(corr2[0],3)}',
                             showarrow=False)])
     return fig
 st.plotly_chart(plotly_gen_corr())
