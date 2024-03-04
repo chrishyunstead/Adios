@@ -30,13 +30,11 @@ hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
 
 # 부산 신항 좌표
 busanport_coord=[35.078205, 128.832975]
-@st.cache_data
 def rest_coord_gen():
     restaurant_coord=[restaurant_selected_df['lat'][0],
                         restaurant_selected_df['lng'][0]]
     return(restaurant_coord)
 
-@st.cache_data
 def hotel_coord_gen():
     hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
     return hotel_coord
