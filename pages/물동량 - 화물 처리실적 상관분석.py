@@ -8,7 +8,7 @@ import scipy.stats as stats
 
 st.title('물동량 - 화물처리실적 상관분석')
 scaler=MinMaxScaler()
-ton_shipgoods_df=pd.read_csv('data/물동량-화물처리실적.csv')
+ton_shipgoods_df=pd.read_csv('data/물동량-화물처리실적.csv').drop('Unnamed: 0',axis=1)
 ton_shipgoods_df.set_index('년도',inplace=True)
 ton_shipgoods_scaled=pd.DataFrame(
     scaler.fit_transform(ton_shipgoods_df),
