@@ -40,7 +40,7 @@ def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     return G
 
-@st.cache_data
+
 def osmnx_gen():
     target_point=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     busan_port_point=\
