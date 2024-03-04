@@ -59,5 +59,4 @@ def plotly_gen():
                              marker_color='#7749f5'),row=2,col=2)
     fig.update_layout(width=1300,height=900)
     return fig
-
 st.plotly_chart(plotly_gen())
