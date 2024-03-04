@@ -71,7 +71,7 @@ def osmnx_gen():
                                 route_map=folium_1,
                                 popup_attribute='length',
                                 color='red')
-    folium.Marker()
+    
     return(folium_2)
 
 st_folium(osmnx_gen())
