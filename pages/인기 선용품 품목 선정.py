@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import plotly.express as px
+
 import streamlit as st
 
 popular_ship_goods_18_df=pd.read_csv('data/18년도-선용품-품목.csv').drop('Unnamed: 0',axis=1)
