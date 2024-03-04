@@ -29,9 +29,14 @@ hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
 
 # 부산 신항 좌표
 busanport_coord=[35.078205, 128.832975]
-restaurant_coord=[restaurant_selected_df['lat'][0],
-                      restaurant_selected_df['lng'][0]]
-hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
+def coord_gen():
+    restaurant_coord=[restaurant_selected_df['lat'][0],
+                        restaurant_selected_df['lng'][0]]
+    hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
+    return(restaurant_coord,hotel_coord)
+
+restaurant_coord,hotel_coord=coord_gen()
+
 @st.cache_data
 def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='all',dist=10000)
@@ -52,12 +57,13 @@ def osmnx_gen():
     route1=nx.shortest_path(target_point,busan_port_point,restaurant_point)
     route2=nx.shortest_path(target_point,restaurant_point,hotel_point)
 
+    folium_start=folium.Map(location=busanport_coord)
     route_map=ox.plot_route_folium(target_point,route1,popup_attribute='length',
-                                   color='blue')
+                                   color='blue').add_to(folium_start)
     folium=ox.plot_route_folium(target_point,route2,
                                 route_map=route_map,
                                 popup_attribute='length',
-                                color='red')
-    return(folium)
+                                color='red').add_to(folium_start)
+    return(folium_start)
 
 st_folium(osmnx_gen())
