@@ -29,14 +29,14 @@ restaurant_coord=[restaurant_selected_df['lat'],restaurant_selected_df['lng']]
 hotel_coord=[hotel_selected_df['lat'],hotel_selected_df['lng']]
 @st.cache_data
 def base_osmnx_gen():
-    G=ox.graph_from_point(busanport_coord,network_type='all',dist=2000)
+    G=ox.graph_from_point(busanport_coord,network_type='all',dist=5000)
     return G
 
 def osmnx_gen():
     G1=base_osmnx_gen()
     busan_port_point=ox.distance.nearest_nodes(G1,busanport_coord[1],busanport_coord[0])
-    restaurant_point=ox.distance.nearest_nodes(G1,restaurant_coord[0],restaurant_coord[1])
-    hotel_point=ox.distance.nearest_nodes(G1,hotel_coord[0],hotel_coord[1])
+    restaurant_point=ox.distance.nearest_nodes(G1,restaurant_coord[1],restaurant_coord[0])
+    hotel_point=ox.distance.nearest_nodes(G1,hotel_coord[1],hotel_coord[0])
 
     route1=nx.shortest_path(G1,busan_port_point,restaurant_point)
     route2=nx.shortest_path(G1,restaurant_point,hotel_point)
