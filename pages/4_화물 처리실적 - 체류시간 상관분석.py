@@ -60,7 +60,7 @@ def plotly_gen_corr():
                             y=1.1,
                             xref='paper',
                             yref='paper',
-                            text=f'상관계수: {round(corr2[0],3)}',
+                            text=f'상관계수: {round(corr[0],3)}',
                             showarrow=False)])
     return fig
 st.plotly_chart(plotly_gen_corr())
