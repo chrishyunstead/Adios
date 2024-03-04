@@ -32,7 +32,7 @@ def ts_plotly_gen():
     fig=go.Figure()
     fig.add_trace(go.Scatter(x=ship_stayed_scaled['년도'],
                              y=ship_stayed_scaled['화물처리량'],
-                             name='물동량'))
+                             name='화물처리량'))
     fig.add_trace(go.Scatter(x=ship_stayed_scaled['년도'],
                              y=ship_stayed_scaled['체류시간'],
                              name='체류시간'))
