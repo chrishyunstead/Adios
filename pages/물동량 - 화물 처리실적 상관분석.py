@@ -33,7 +33,8 @@ def plotly_gen_corr():
         x=ton_shipgoods_scaled['물동량'],
         y=np.poly1d(np.polyfit(ton_shipgoods_scaled['물동량'],ton_shipgoods_scaled['화물처리실적'],1))\
             (ton_shipgoods_scaled['물동량']),
-        mode='lines',name='추세선'
+        mode='lines',name='추세선',
+        line=dict(color='red')
     ))
     fig.update_layout(title='연간 물동량 - 화물처리실적 상관분석',
                     xaxis=dict(title='물동량'),
