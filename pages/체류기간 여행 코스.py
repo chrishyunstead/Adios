@@ -62,7 +62,7 @@ def osmnx_gen():
                                   route=route1,popup_attribute='length',
                                    color='blue')
     folium_2=ox.plot_route_folium(target_point,route2,
-                                route_map=folium_start,
+                                route_map=folium_1,
                                 popup_attribute='length',
                                 color='red')
     folium.Marker()
