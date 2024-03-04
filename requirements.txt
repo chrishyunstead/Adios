@@ -11,3 +11,4 @@ folium
 seaborn
 plotly
 st-pages
+scipy
