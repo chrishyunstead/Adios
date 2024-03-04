@@ -6,11 +6,12 @@ import plotly.graph_objects as go
 from sklearn.preprocessing import MinMaxScaler
 import scipy.stats as stats
 
-st.title('화물처리량-체류시간 상관분석')
+st.title('연간 화물처리량-체류시간 상관분석')
 ship_stayed_df=pd.read_csv('data/처리실적-체류시간_상관분석.csv').drop('Unnamed: 0',axis=1)
 ship_stayed_df.rename(columns={'컨테이너':'화물처리량',
                                '체류시간_totalTime(시간)':'체류시간'},
                       inplace=True)
+ship_stayed_df=ship_stayed_df.groupby('년도',as_index=False).sum()
 st.dataframe(ship_stayed_df,use_container_width=True)
 
 scaler=MinMaxScaler()
