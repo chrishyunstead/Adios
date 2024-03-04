@@ -32,7 +32,8 @@ busanport_coord=[35.078205, 128.832975]
 @st.cache_data
 def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='all',dist=15000)
-    return G
+    fig,ax=ox.plot_graph(G)
+    return fig
 
 def osmnx_gen():
     target_point=base_osmnx_gen()
@@ -59,4 +60,4 @@ def osmnx_gen():
                                 route_color='red')
     return(folium)
 
-st_folium(osmnx_gen())
+st.pyplot(base_osmnx_gen())
