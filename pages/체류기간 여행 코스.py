@@ -14,7 +14,8 @@ restaurant_df=restaurant_df_raw.query(f"구분=='{restaurant_type_selet}'")\
     .reset_index().drop('index',axis=1)
 st.dataframe(restaurant_df,use_container_width=True)
 restaurant_select=st.selectbox('식당 선택',restaurant_df['가게명'])
-restaurant_selected_df=restaurant_df.query(f"가게명=='{restaurant_select}'")
+restaurant_selected_df=restaurant_df.query(f"가게명=='{restaurant_select}'")\
+    .reset_index().drop('index',axis=1)
 
 hotel_type_list=list(set(hotel_df_raw['구분']))
 hotel_grade_select=st.selectbox('호텔 등급 선택',hotel_type_list)
@@ -22,13 +23,14 @@ hotel_df=hotel_df_raw.query(f"구분=='{hotel_grade_select}'")\
     .reset_index().drop('index',axis=1)
 st.dataframe(hotel_df,use_container_width=True)
 hotel_select=st.selectbox('호텔 선택',hotel_df['업소명'])
-hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")
+hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
+    .reset_index().drop('index',axis=1)
 
 def osmnx_gen():
     busanport_coord=[35.1029191, 129.0407161]
     target_point=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
-    restaurant_coord=[restaurant_selected_df['lat'],restaurant_selected_df['lng']]
-    hotel_coord=[hotel_selected_df['lat'],hotel_selected_df['lng']]
+    restaurant_coord=[restaurant_selected_df['lat'][0],restaurant_selected_df['lng'][0]]
+    hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
     busan_port_point=\
         ox.distance.nearest_nodes(target_point,
                                   busanport_coord[1],busanport_coord[0])
