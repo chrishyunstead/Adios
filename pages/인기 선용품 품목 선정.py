@@ -39,9 +39,6 @@ df_concated=pd.concat(df_list)
 select_year=st.selectbox('년도 선택',list(set(df_concated.년도)))
 df_selected=df_concated.query(f"년도=={select_year}")
 
-st.dataframe(df_selected,use_container_width=True)
-
-
 title_list=[f'{select_year}년도 1분기 선용품 품목',
             f'{select_year}년도 2분기 선용품 품목',
             f'{select_year}년도 3분기 선용품 품목',
