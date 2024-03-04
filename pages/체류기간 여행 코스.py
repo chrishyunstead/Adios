@@ -26,17 +26,23 @@ hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")
 
 def osmnx_gen():
     busanport_coord=[35.1029191, 129.0407161]
-    G1=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
+    target_point=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
     restaurant_coord=[restaurant_selected_df['lat'],restaurant_selected_df['lng']]
     hotel_coord=[hotel_selected_df['lat'],hotel_selected_df['lng']]
-    busan_port_point=ox.distance.nearest_nodes(G1,busanport_coord[1],busanport_coord[0])
-    restaurant_point=ox.distance.nearest_nodes(G1,restaurant_coord[1],restaurant_coord[0])
-    hotel_point=ox.distance.nearest_nodes(G1,hotel_coord[1],hotel_coord[0])
+    busan_port_point=\
+        ox.distance.nearest_nodes(target_point,
+                                  busanport_coord[1],busanport_coord[0])
+    restaurant_point=\
+        ox.distance.nearest_nodes(target_point,
+                                  restaurant_coord[1],restaurant_coord[0])
+    hotel_point=\
+        ox.distance.nearest_nodes(target_point,
+                                  hotel_coord[1],hotel_coord[0])
 
-    route1=nx.shortest_path(G1,busan_port_point,restaurant_point)
-    route2=nx.shortest_path(G1,restaurant_point,hotel_point)
+    route1=nx.shortest_path(target_point,busan_port_point,restaurant_point)
+    route2=nx.shortest_path(target_point,restaurant_point,hotel_point)
 
-    fig,ax=ox.plot_graph_routes(G1,[route1,route2],node_size=0.5,
+    fig,ax=ox.plot_graph_routes(target_point,[route1,route2],node_size=0.5,
                           edge_linewidth=0.5,edge_color='w',
                           route_colors=['blue','red'])
     return(fig)
