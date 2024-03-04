@@ -41,16 +41,20 @@ def plotly_gen():
     fig=make_subplots(rows=2,cols=2,column_titles=title_list)
     fig.add_trace(go.Bar(x=df_selected['품목'],
                              y=df_selected['1분기'],
-                             marker_color='#ffff00'),row=1,col=1)
+                             marker_color='#ffff00',
+                             name='1분기'),row=1,col=1)
     fig.add_trace(go.Bar(x=df_selected['품목'],
                              y=df_selected['2분기'],
-                             marker_color='#40e0d0'),row=1,col=2)
+                             marker_color='#40e0d0',
+                             name='2분기'),row=1,col=2)
     fig.add_trace(go.Bar(x=df_selected['품목'],
                              y=df_selected['3분기'],
-                             marker_color='#ff6600'),row=2,col=1)
+                             marker_color='#ff6600',
+                             name='3분기'),row=2,col=1)
     fig.add_trace(go.Bar(x=df_selected['품목'],
                              y=df_selected['4분기'],
-                             marker_color='#7749f5'),row=2,col=2)
+                             marker_color='#7749f5',
+                             name='4분기'),row=2,col=2)
     fig.update_layout(width=1300,height=900)
     return fig
 st.plotly_chart(plotly_gen())
