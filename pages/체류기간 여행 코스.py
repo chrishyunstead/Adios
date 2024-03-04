@@ -46,7 +46,7 @@ hotel_coord=hotel_coord_gen()
 
 @st.cache_data
 def base_osmnx_gen():
-    G=ox.graph_from_point(busanport_coord,network_type='all',dist=10000)
+    G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     return G
 
 def osmnx_gen():
