@@ -5,6 +5,9 @@ import plotly
 import plotly.graph_objects as go
 
 st.title('연간 입항 외국인 선원 추이')
+st.markdown('''
+-----------
+''')
 busan_sailors_df=pd.read_excel('data/항구별 출입항 선원수.xlsx',
                                header=[0,1,2],index_col=0)
 year_list=list(range(2009,2022))
