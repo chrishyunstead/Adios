@@ -57,13 +57,12 @@ def osmnx_gen():
     route1=nx.shortest_path(target_point,busan_port_point,restaurant_point)
     route2=nx.shortest_path(target_point,restaurant_point,hotel_point)
 
-    folium_start=folium.Map(location=busanport_coord)
     route_map=ox.plot_route_folium(target_point,route1,popup_attribute='length',
-                                   color='blue').add_to(folium_start)
+                                   color='blue')
     folium=ox.plot_route_folium(target_point,route2,
                                 route_map=route_map,
                                 popup_attribute='length',
-                                color='red').add_to(folium_start)
-    return(folium_start)
+                                color='red')
+    return(folium)
 
 st_folium(osmnx_gen())
