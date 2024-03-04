@@ -41,7 +41,7 @@ def osmnx_gen():
     route1=nx.shortest_path(G1,busan_port_point,restaurant_point)
     route2=nx.shortest_path(G1,restaurant_point,hotel_point)
 
-    fig,ax=ox.plot_routes(G1,[route1,route2],node_size=0.5,
+    fig,ax=ox.plot_graph_routes(G1,[route1,route2],node_size=0.5,
                           edge_linewidth=0.5,edge_color='w',
                           route_colors=['blue','red'])
     return(fig)
