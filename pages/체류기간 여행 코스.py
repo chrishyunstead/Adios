@@ -66,7 +66,7 @@ def osmnx_gen():
                                 popup_attribute='length',
                                 color='red')
     
-    return(folium_2)
+    return(folium_final)
 
 folium=osmnx_gen()
 st_folium(folium,width=2000,height=1500)
