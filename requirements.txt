@@ -6,3 +6,4 @@ osmnx
 networkx
 scikit-learn
 matplotlib
+streamlit_folium
