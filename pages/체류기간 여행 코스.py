@@ -31,7 +31,7 @@ hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
 busanport_coord=[35.078205, 128.832975]
 @st.cache_data
 def base_osmnx_gen():
-    G=ox.graph_from_point(busanport_coord,network_type='all',dist=15000)
+    G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     fig,ax=ox.plot_graph(G)
     return fig
 
