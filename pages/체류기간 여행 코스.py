@@ -24,14 +24,8 @@ st.dataframe(hotel_df,use_container_width=True)
 hotel_select=st.selectbox('호텔 선택',hotel_df['업소명'])
 hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")
 
-busanport_coord=[35.1029191, 129.0407161]
-
-@st.cache
-def base_osmnx_gen():
-    G=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
-    return G
-
 def osmnx_gen():
+    busanport_coord=[35.1029191, 129.0407161]
     G1=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
     restaurant_coord=[restaurant_selected_df['lat'],restaurant_selected_df['lng']]
     hotel_coord=[hotel_selected_df['lat'],hotel_selected_df['lng']]
