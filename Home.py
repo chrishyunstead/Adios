@@ -11,17 +11,3 @@ st.markdown(
         - 인기 선용품 기업 리스트 소싱
 '''
 )
-
-show_pages([
-    Page('Home.py','Home'),
-    Section(name='1. 상관분석'),
-    Page('pages/연도별 물동량 변화 - Flourish.py',
-         '연도별 물동량 변화'),  #추후 업데이트 예정
-    Page('pages/물동량 - 화물처리실적 상관분석.py',
-         '물동량 - 화물 처리량 상관분석'),
-    Page('pages/화물 처리실적 - 체류시간 상관분석.py',
-         '화물 처리량 - 체류시간 상관분석'),
-    Section(name='2. 선용품 구매플랫폼 구축을 위한 데이터 분석'),
-    Page('pages/인기 선용품 품목 선정.py',
-         '선용품 팜매 품목 선정 분석')
-])
