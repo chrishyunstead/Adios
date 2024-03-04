@@ -12,6 +12,6 @@ st.dataframe(company_selected_type)
 st.download_button(
     label='다운로드',
     data=company_selected_type,
-    file_name=f'{company_type} 기업 리스트',
+    file_name='기업 리스트',
     mime='text/csv'
 )
