@@ -45,7 +45,7 @@ def plotly_gen():
     fig.add_trace(go.Bar(x=popular_ship_goods_18_df['품목'],
                              y=popular_ship_goods_18_df['2018.4분기'],
                              marker_color='#7749f5'),row=2,col=2)
-    fig.update_layout(width=1000,height=900)
+    fig.update_layout(width=1500,height=900)
     return fig
 
 st.plotly_chart(plotly_gen())
