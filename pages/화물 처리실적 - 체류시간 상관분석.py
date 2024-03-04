@@ -27,6 +27,7 @@ corr=stats.pearsonr(ship_stayed_scaled['화물처리량'],
                     ship_stayed_scaled['체류시간'])
 st.write(f'상관계수 : {round(corr[0],3)}')
 st.write(f'P-value : {round(corr[1],3)}')
+st.write(f'P-value가 {round(corr[1],3)}로, 상관계수가 유의미하지 않다고 보임')
 
 def plotly_gen_corr():
     fig=go.Figure()
