@@ -11,7 +11,7 @@ ship_stayed_df=pd.read_csv('data/처리실적-체류시간_상관분석.csv').dr
 ship_stayed_df.rename(columns={'컨테이너':'화물처리량',
                                '체류시간_totalTime(시간)':'체류시간'},
                       inplace=True)
-ship_stayed_df=ship_stayed_df.groupby('년도',as_index=False).sum()
+ship_stayed_df=ship_stayed_df.groupby('년도',as_index=False)[['화물처리량','체류시간']].sum()
 st.dataframe(ship_stayed_df,use_container_width=True)
 
 scaler=MinMaxScaler()
