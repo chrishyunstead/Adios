@@ -38,6 +38,7 @@ def plotly_gen_corr():
     fig=go.Figure()
     fig.add_trace(go.Scatter(x=ship_stayed_scaled['체류시간'],
                              y=ship_stayed_scaled['화물처리량'],
+                             hovertempate=f'<b>체류시간:{ship_stayed_scaled['체류시간']}\n화물처리량:{ship_stayed_scaled['화물처리량']}</b>',
                              mode='markers',name='실측값'))
 
     # 추세선을 추가합니다.
