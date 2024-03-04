@@ -36,10 +36,10 @@ st.write(f'P-value가 {round(corr[1],3)}로, 상관계수가 유의미하다고 
 
 def plotly_gen_corr():
     fig=go.Figure()
-    fig.add_trace(go.Scatter(x=ship_stayed_scaled['체류시간'],y=ship_stayed_scaled['화물처리량'],
-                            hovertemplate='<b>년/월:</b> %{text}',
-                            mode='markers',name='실측값',
-                            text=ship_stayed_scaled['년/월']))
+    fig.add_trace(go.Scatter(x=ship_stayed_scaled['체류시간'],
+                             y=ship_stayed_scaled['화물처리량'],
+                             mode='markers',name='실측값',
+                             text=ship_stayed_scaled['년/월']))
 
     # 추세선을 추가합니다.
     fig.add_trace(go.Scatter(
