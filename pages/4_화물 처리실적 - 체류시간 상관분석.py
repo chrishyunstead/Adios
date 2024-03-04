@@ -18,7 +18,7 @@ for i in range(len(ship_stayed_df)):
     y_m.append(str(ship_stayed_df['년도'][i])+'-'+str(ship_stayed_df['월'][i]))
 ship_stayed_df['년/월']=y_m
 ship_stayed_df['년/월']=pd.to_datetime(ship_stayed_df['년/월'])
-ship_stayed_df=ship_stayed_df.iloc[:,2:-1]
+ship_stayed_df=ship_stayed_df.iloc[:,:-1]
 st.dataframe(ship_stayed_df,use_container_width=True)
 
 scaler=MinMaxScaler()
