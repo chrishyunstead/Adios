@@ -29,6 +29,9 @@ hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
 
 # 부산 신항 좌표
 busanport_coord=[35.078205, 128.832975]
+restaurant_coord=[restaurant_selected_df['lat'][0],
+                      restaurant_selected_df['lng'][0]]
+hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
 @st.cache_data
 def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
@@ -36,9 +39,6 @@ def base_osmnx_gen():
 
 def osmnx_gen():
     target_point=base_osmnx_gen()
-    restaurant_coord=[restaurant_selected_df['lat'][0],
-                      restaurant_selected_df['lng'][0]]
-    hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
     busan_port_point=\
         ox.distance.nearest_nodes(target_point,
                                   busanport_coord[1],busanport_coord[0])
