@@ -8,6 +8,7 @@ from streamlit_folium import st_folium
 
 restaurant_df_raw=pd.read_excel('data/평점 4이상 맛집리스트.xlsx').drop('Unnamed: 0',axis=1)
 hotel_df_raw=pd.read_excel('data/평점 4이상 숙박업소.xlsx').drop('Unnamed: 0',axis=1)
+hotel_df_raw['구분'][50]='호텔'
 
 restaurant_type_list=list(set(restaurant_df_raw['구분']))
 restaurant_type_selet=st.selectbox('식당 분류 선택',restaurant_type_list)
