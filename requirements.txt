@@ -10,4 +10,4 @@ streamlit_folium
 folium
 seaborn
 plotly
-streamlit_pages
+st_pages
