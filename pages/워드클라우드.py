@@ -9,7 +9,7 @@ img_list=glob.glob('img/*워드클라우드.png')
 
 keyword=[]
 for i in img_list:
-    keyword.append(i.split(' ')[0])
+    keyword.append(i.split('/')[1].split(' ')[0])
 
 select_keyword=st.selectbox('품목 키워드 선택',keyword)
 
