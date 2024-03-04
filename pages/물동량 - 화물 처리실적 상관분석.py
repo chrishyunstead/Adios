@@ -27,10 +27,12 @@ def plotly_gen():
     fig=go.Figure()
     fig.add_trace(go.Scatter(x=ton_shipgoods_scaled['년도'],
                              y=ton_shipgoods_scaled['물동량'],
-                             mode='lines',name='물동량'))
+                             mode='lines',line=dict(color='blue'),
+                             name='물동량'))
     fig.add_trace(go.Scatter(x=ton_shipgoods_scaled['년도'],
                              y=ton_shipgoods_scaled['화물처리실적'],
-                             mode='lines',name='화물처리실적'))
+                             mode='lines',line=dict(color='red'),
+                             name='화물처리실적'))
     fig.update_layout(title='연간 물동량, 화물처리실적 추이',
                     xaxis=dict(title='년도'),
                     annotations=[
