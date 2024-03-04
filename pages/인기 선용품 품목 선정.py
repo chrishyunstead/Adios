@@ -36,7 +36,7 @@ for i in df_list:
     i.columns=['품목','1분기','2분기','3분기','4분기','년도']
 df_concated=pd.concat(df_list)
 
-select_year=st.selectbox('년도 선택',list(set(df_concated.year)))
+select_year=st.selectbox('년도 선택',list(set(df_concated.년도)))
 df_selected=df_concated.query(f"년도=={select_year}")
 
 st.dataframe(df_selected,use_container_width=True)
