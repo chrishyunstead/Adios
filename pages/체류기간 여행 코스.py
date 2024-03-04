@@ -34,7 +34,7 @@ restaurant_coord=[restaurant_selected_df['lat'][0],
 hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
 @st.cache_data
 def base_osmnx_gen():
-    G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
+    G=ox.graph_from_point(busanport_coord,network_type='all',dist=10000)
     return G
 
 def osmnx_gen():
