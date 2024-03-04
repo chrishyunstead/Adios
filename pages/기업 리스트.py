@@ -9,7 +9,7 @@ company_type_list=list(set(company_list_df['업종']))
 company_type=st.multiselect('업종 선택',company_type_list)
 company_selected_type=company_list_df.query(f'업종 in {company_type}').reset_index().drop('index',axis=1)
 st.dataframe(company_selected_type,
-             use_container_width=True)
+             use_container_width=st.session_state.use_container_width)
 download_df=company_selected_type.to_csv().encode('utf-8-sig')
 
 st.download_button(
