@@ -26,9 +26,14 @@ hotel_select=st.selectbox('호텔 선택',hotel_df['업소명'])
 hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
     .reset_index().drop('index',axis=1)
 
+busanport_coord=[35.1029191, 129.0407161]
+@st.cache_data
+def base_osmnx_gen():
+    G=ox.graph_from_point(busanport_coord,network_type='drive',dist=2000)
+    return G
+
 def osmnx_gen():
-    busanport_coord=[35.1029191, 129.0407161]
-    target_point=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
+    target_point=base_osmnx_gen()
     restaurant_coord=[restaurant_selected_df['lat'][0],restaurant_selected_df['lng'][0]]
     hotel_coord=[hotel_selected_df['lat'][0],hotel_selected_df['lng'][0]]
     busan_port_point=\
@@ -44,9 +49,10 @@ def osmnx_gen():
     route1=nx.shortest_path(target_point,busan_port_point,restaurant_point)
     route2=nx.shortest_path(target_point,restaurant_point,hotel_point)
 
-    fig,ax=ox.plot_graph_routes(target_point,[route1,route2],node_size=0.5,
-                          edge_linewidth=0.5,edge_color='w',
-                          route_colors=['blue','red'])
+    fig,ax=ox.plot_graph_routes(target_point,[route1,route2],
+                                node_size=0.5,
+                                edge_linewidth=0.5,edge_color='w',
+                                route_colors=['blue','red'])
     return(fig)
 
 st.pyplot(osmnx_gen())
