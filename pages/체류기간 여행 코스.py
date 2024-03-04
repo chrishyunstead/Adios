@@ -26,12 +26,13 @@ hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")
 
 busanport_coord=[35.1029191, 129.0407161]
 
+@st.cache
 def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
     return G
 
 def osmnx_gen():
-    G1=base_osmnx_gen()
+    G1=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
     restaurant_coord=[restaurant_selected_df['lat'],restaurant_selected_df['lng']]
     hotel_coord=[hotel_selected_df['lat'],hotel_selected_df['lng']]
     busan_port_point=ox.distance.nearest_nodes(G1,busanport_coord[1],busanport_coord[0])
