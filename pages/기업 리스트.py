@@ -5,7 +5,7 @@ import pandas as pd
 st.set_page_config(layout='wide')
 st.title('업종별 기업 리스트 소싱')
 company_list_df=pd.read_excel('data/기업엑셀화.xlsx').drop('Unnamed: 0',axis=1)
-for i in list(company_type_list.index):
+for i in list(company_list_df.index):
     if company_list_df['업종'][i] in ['과자류','당류','초콜릿 도매업','빵류','낙농품 및 동ㆍ식물성 유지 도매업','수산물 가공식품 도매업','기타 가공식품 도매업']:
         company_list_df['대분류'][i]='식품'
     elif company_list_df['업종'][i] in ['육류 가공식품 도매업','육류 도매업']:
