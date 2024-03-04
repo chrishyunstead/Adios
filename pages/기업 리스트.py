@@ -21,7 +21,7 @@ company_type=st.multiselect('업종 선택',
 company_selected_type=company_list_df.query(f'대분류 in {company_type}').reset_index().drop('index',axis=1)
 st.dataframe(company_selected_type,
              use_container_width=True,
-             height=500)
+             height=900)
 download_df=company_selected_type.to_csv().encode('utf-8-sig')
 
 st.download_button(
