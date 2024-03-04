@@ -39,7 +39,7 @@ def osmnx_gen():
     hotel_point=ox.distance.nearest_nodes(G1,hotel_coord[1],hotel_coord[0])
 
     route1=nx.shortest_path(G1,busan_port_point,restaurant_point)
-    route2=nx.shortest_path(G1,restaurant_coord,hotel_point)
+    route2=nx.shortest_path(G1,restaurant_point,hotel_point)
 
     fig,ax=ox.plot_routes(G1,[route1,route2],node_size=0.5,
                           edge_linewidth=0.5,edge_color='w',
