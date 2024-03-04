@@ -22,7 +22,7 @@ hotel_df=hotel_df_raw.query(f"구분=='{hotel_grade_select}'")\
     .reset_index().drop('index',axis=1)
 st.dataframe(hotel_df)
 hotel_select=st.selectbox('호텔 선택',hotel_df['업소명'])
-hotel_selected_df=hotel_df.query(f"업소명=={hotel_select}")
+hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")
 
 busanport_coord=[35.1029191, 129.0407161]
 restaurant_coord=[restaurant_selected_df['lat'],restaurant_selected_df['lng']]
