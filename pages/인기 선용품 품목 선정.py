@@ -27,9 +27,12 @@ popular_ship_goods_23_df=pd.read_csv('data/2023년도 분기별 품목 합.csv')
 popular_ship_goods_23_df['년도']=2023
 
 st.dataframe(popular_ship_goods_18_df,use_container_width=True)
-
+title_list=['2018년도 1분기 선용품 품목',
+            '2018년도 2분기 선용품 품목',
+            '2018년도 3분기 선용품 품목',
+            '2018년도 4분기 선용품 품목']
 def plotly_gen():
-    fig=make_subplots(rows=2,cols=2,column_titles='년도 분기 선용품 품목')
+    fig=make_subplots(rows=2,cols=2,column_titles=title_list)
     fig.add_trace(go.Bar(x=popular_ship_goods_18_df['품목'],
                              y=popular_ship_goods_18_df['2018.1분기'],
                              marker_color='#ffff00'),row=1,col=1)
