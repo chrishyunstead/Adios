@@ -40,7 +40,7 @@ def base_osmnx_gen():
     G=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     return G
 
-
+@st.cache_resource
 def osmnx_gen():
     target_point=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
     busan_port_point=\
@@ -56,7 +56,7 @@ def osmnx_gen():
     route1=nx.shortest_path(target_point,busan_port_point,restaurant_point)
     route2=nx.shortest_path(target_point,restaurant_point,hotel_point)
     
-    folium_final=ox.plot_graph_folium(target_point,color=None)
+    folium_final=ox.plot_graph_folium(target_point,color=None,zoom=11)
     folium_1=ox.plot_route_folium(target_point,route=route1,
                                   route_map=folium_final,
                                   popup_attribute='length',
