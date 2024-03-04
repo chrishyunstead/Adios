@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-st.set_page_config=(layout='wide')
+st.set_page_config(layout='wide')
 st.title('업종별 기업 리스트 소싱')
 company_list_df=pd.read_excel('data/기업엑셀화.xlsx').drop('Unnamed: 0',axis=1)
 company_type_list=list(set(company_list_df['업종']))
