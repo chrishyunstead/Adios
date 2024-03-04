@@ -14,7 +14,7 @@ restaurant_df=restaurant_df_raw.query(f"구분=='{restaurant_type_selet}'")\
     .reset_index().drop('index',axis=1)
 st.dataframe(restaurant_df)
 restaurant_select=st.selectbox('식당 선택',restaurant_df['가게명'])
-restaurant_selected_df=restaurant_df.query(f"가게명=={restaurant_select}")
+restaurant_selected_df=restaurant_df.query(f"가게명=='{restaurant_select}'")
 
 hotel_type_list=list(set(hotel_df_raw['구분']))
 hotel_grade_select=st.selectbox('호텔 등급 선택',hotel_type_list)
