@@ -8,7 +8,6 @@ st.title('연간 입항 외국인 선원 추이')
 busan_sailors_df=pd.read_excel('data/항구별 출입항 선원수.xlsx',
                                header=[0,1,2],index_col=0)
 year_list=list(range(2009,2022))
-year_list
 col_list=[]
 for i in year_list:
     col=busan_sailors_df[str(i)][('입항','선원수 (명)')][1]
