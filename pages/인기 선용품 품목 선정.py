@@ -46,16 +46,16 @@ title_list=[f'{select_year}년도 1분기 선용품 품목',
 def plotly_gen():
     fig=make_subplots(rows=2,cols=2,column_titles=title_list)
     fig.add_trace(go.Bar(x=df_selected['품목'],
-                             y=df_selected['1분기'][::-1],
+                             y=df_selected['1분기'],
                              marker_color='#ffff00'),row=1,col=1)
     fig.add_trace(go.Bar(x=df_selected['품목'],
-                             y=df_selected['2분기'][::-1],
+                             y=df_selected['2분기'],
                              marker_color='#40e0d0'),row=1,col=2)
     fig.add_trace(go.Bar(x=df_selected['품목'],
-                             y=df_selected['3분기'][::-1],
+                             y=df_selected['3분기'],
                              marker_color='#ff6600'),row=2,col=1)
     fig.add_trace(go.Bar(x=df_selected['품목'],
-                             y=df_selected['4분기'][::-1],
+                             y=df_selected['4분기'],
                              marker_color='#7749f5'),row=2,col=2)
     fig.update_layout(width=1300,height=900)
     return fig
