@@ -67,4 +67,4 @@ def osmnx_gen():
     
     return(folium_final)
 
-osmnx_gen()
+st_folium(osmnx_gen())
