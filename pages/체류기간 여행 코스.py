@@ -68,4 +68,4 @@ def osmnx_gen():
     folium.Marker()
     return(folium_2)
 
-osmnx_gen()
+st_folium(osmnx_gen())
