@@ -22,7 +22,6 @@ ship_stayed_df=ship_stayed_df.iloc[:,2:-1]
 st.dataframe(ship_stayed_df,use_container_width=True)
 
 scaler=MinMaxScaler()
-ship_stayed_df.set_index('년도',inplace=True)
 ship_stayed_scaled=pd.DataFrame(
     scaler.fit_transform(ship_stayed_df.copy()),
     columns=ship_stayed_df.columns
