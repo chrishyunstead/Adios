@@ -78,6 +78,7 @@ def ts_plotly_gen():
     fig.update_layout(
         title='년/월별 화물처리량, 체류시간 추이',
         xaxis=dict(title='년/월'),
+        hovermode='x',
         annotations=[
             dict(x=-0.03,
                 y=1.15,
