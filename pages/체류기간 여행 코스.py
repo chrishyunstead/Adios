@@ -27,10 +27,11 @@ hotel_select=st.selectbox('호텔 선택',hotel_df['업소명'])
 hotel_selected_df=hotel_df.query(f"업소명=='{hotel_select}'")\
     .reset_index().drop('index',axis=1)
 
-busanport_coord=[35.1029191, 129.0407161]
+# 부산 신항 좌표
+busanport_coord=[35.078205, 128.832975]
 @st.cache_data
 def base_osmnx_gen():
-    G=ox.graph_from_point(busanport_coord,network_type='drive',dist=2000)
+    G=ox.graph_from_point(busanport_coord,network_type='drive',dist=5000)
     return G
 
 def osmnx_gen():
