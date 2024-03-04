@@ -28,6 +28,31 @@ corr=stats.pearsonr(ship_stayed_scaled['화물처리량'],
 st.write(f'상관계수 : {round(corr[0],3)}')
 st.write(f'P-value : {round(corr[1],3)}')
 
+def plotly_gen_corr():
+    fig=go.Figure()
+    fig.add_trace(go.Scatter(
+        x=ship_stayed_scaled['화물처리량'],y=ship_stayed_scaled['체류시간'],
+        name='실측값',mode='markers'
+    ))
+    fig.add_trace(go.Scatter(
+        x=ship_stayed_scaled['화물처리량'],
+        y=np.poly1d(np.polyfit(ship_stayed_scaled['화물처리량'],ship_stayed_scaled['체류시간'],1))\
+            (ship_stayed_scaled['화물처리량']),
+        mode='lines',line=dict(color='red'),name='추세선'
+    ))
+    fig.update_layout(title='연간 화물처리량 - 체류시간',
+                    xaxis=dict(title='화물처리량'),
+                    yaxis=dict(title='체류시간'),
+                    annotations=[
+                        dict(x=-0.02,
+                            y=1.15,
+                            xref='paper',
+                            yref='paper',
+                            text=f'상관계수 : {round(corr[0],3)}',
+                            showarrow=False)])
+    return fig
+st.plotly_chart(plotly_gen_corr())
+
 def ts_plotly_gen():
     fig=go.Figure()
     fig.add_trace(go.Scatter(x=ship_stayed_scaled['년도'],
