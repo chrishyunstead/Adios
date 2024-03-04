@@ -53,7 +53,7 @@ def plotly_gen_corr():
                     xaxis=dict(title='체류시간'),
                     yaxis=dict(title='년/월별 화물처리실적'),
                     width=600,height=600,
-                    hovermode='x',
+                    hovermode='all',
                     annotations=[
                         dict(x=-0.1,
                             y=1.1,
