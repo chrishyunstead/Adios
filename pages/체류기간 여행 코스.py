@@ -35,8 +35,8 @@ def base_osmnx_gen():
 def osmnx_gen():
     G1=base_osmnx_gen()
     busan_port_point=ox.distance.nearest_nodes(G1,busanport_coord[1],busanport_coord[0])
-    restaurant_point=ox.distance.nearest_nodes(G1,restaurant_coord[1],restaurant_coord[0])
-    hotel_point=ox.distance.nearest_nodes(G1,hotel_coord[1],hotel_coord[0])
+    restaurant_point=ox.distance.nearest_nodes(G1,restaurant_coord[0],restaurant_coord[1])
+    hotel_point=ox.distance.nearest_nodes(G1,hotel_coord[0],hotel_coord[1])
 
     route1=nx.shortest_path(G1,busan_port_point,restaurant_point)
     route2=nx.shortest_path(G1,restaurant_point,hotel_point)
