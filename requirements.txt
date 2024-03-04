@@ -5,3 +5,4 @@ openpyxl
 osmnx
 networkx
 scikit-learn
+matplotlib
