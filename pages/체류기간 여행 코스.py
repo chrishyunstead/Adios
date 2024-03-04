@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import oxmnx as ox
+import osmnx as ox
 import networkx as nx
 
 
