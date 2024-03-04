@@ -42,7 +42,7 @@ def base_osmnx_gen():
     return G
 
 def osmnx_gen():
-    target_point=ox.graph_from_point(busanport_coord,network_type='all',dist=7000)
+    target_point=osmnx_gen()
     busan_port_point=\
         ox.distance.nearest_nodes(target_point,
                                   busanport_coord[1],busanport_coord[0])
