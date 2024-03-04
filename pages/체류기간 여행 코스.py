@@ -60,12 +60,12 @@ def osmnx_gen():
     folium_start=ox.plot_graph_folium(target_point,color=None)
     folium_1=ox.plot_route_folium(target_point,route_map=folium_start,
                                   route=route1,popup_attribute='length',
-                                   color='blue').add_to(folium_start)
-    foliums_2=ox.plot_route_folium(target_point,route2,
+                                   color='blue')
+    folium_2=ox.plot_route_folium(target_point,route2,
                                 route_map=folium_start,
                                 popup_attribute='length',
-                                color='red').add_to(folium_start)
+                                color='red')
     folium.Marker()
-    return(folium_start)
+    return(folium_2)
 
 st_folium(osmnx_gen())
