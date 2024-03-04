@@ -23,6 +23,11 @@ ship_stayed_scaled=pd.DataFrame(
 ship_stayed_scaled.index=ship_stayed_df.index
 ship_stayed_scaled.reset_index(inplace=True)
 
+corr=stats.pearsonr(ship_stayed_scaled['물동량'],
+                    ship_stayed_scaled['체류시간'])
+st.write(f'상관계수 : {round(corr[0],3)}')
+st.write(f'P-value : {round(corr[1],3)}')
+
 def ts_plotly_gen():
     fig=go.Figure()
     fig.add_trace(go.Scatter(x=ship_stayed_scaled['년도'],
