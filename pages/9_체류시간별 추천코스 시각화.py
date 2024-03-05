@@ -46,7 +46,7 @@ def folium_gen_1_1():
     # 부산항 근처 2km 운전 도로망에 루트1, 2 표시
     # 파란색이 부산항 - 맛집
     # 붉은색이 맛집 호텔
-    osmnx=ox.plot_graph_routes(targetPoint,[route1,route2,route3,route4],node_size=0.5, edge_linewidth=0.5, edge_color='white',route_colors=['red','orange','yellow','blue'])
-    return osmnx
+    fig,ax=ox.plot_graph_routes(targetPoint,[route1,route2,route3,route4],node_size=0.5, edge_linewidth=0.5, edge_color='white',route_colors=['red','orange','yellow','blue'])
+    return fig
 
 st.pyplot(folium_gen_1_1(),use_container_width=True)
