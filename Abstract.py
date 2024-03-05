@@ -1,4 +1,5 @@
 import streamlit as st
+from st_pages import Page, add_page_title, show_pages
 st.set_page_config(layout='wide')
 
 html = """
@@ -19,6 +20,6 @@ st.markdown('''
          4) 이미지
 ''')
 
-
+'''markdown![](https://flo.uri.sh/visualisation/17012869/embed)'''
 
 st.markdown(html, unsafe_allow_html=True)
