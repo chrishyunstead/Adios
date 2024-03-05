@@ -108,4 +108,4 @@ def folium_gen():
     folium.Marker(location=[35.0809179, 128.8349832], tooltip='부산신항만', icon=folium.Icon(color='red', icon='ship', prefix='fa'), min_width=500, max_width=500).add_to(map)
     return map
 
-st_folium(folium_gen())
+st_folium(folium_gen(),use_container_width=True)
