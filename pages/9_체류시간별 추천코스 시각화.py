@@ -475,8 +475,8 @@ course_df=pd.DataFrame({
     'Fig':osmnx_fig
 })
 time_select=st.selectbox('체류 시간 선택',list(set(course_df['체류 시간'])))
-course_df_time_select=course_df.query(f"체류 시간=='{time_select}'")
+course_df_time_select=course_df.query(f"체류 시간=={time_select}")
 course_select=st.selectbox('코스 선택',course_df_time_select['코스'])
-course_final=course_df_time_select.query(f"코스=='{course_select}'")
+course_final=course_df_time_select.query(f"코스=={course_select}")
 
 st.pyplot(course_final['코스'][0],use_container_width=True)
