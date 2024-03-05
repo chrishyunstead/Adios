@@ -48,7 +48,7 @@ def folium_gen_1_1():
     osmnx=ox.plot_graph_routes(targetPoint,[route1,route2,route3,route4],node_size=0.5, 
                          edge_linewidth=0.5, edge_color='white',
                          route_colors=['red','orange','yellow','blue'])
-    folium=ox.plot_follium(osmnx)
+    folium=ox.plot_graph_follium(osmnx)
     return folium
 
 st_folium(folium_gen_1_1())
