@@ -13,4 +13,3 @@ seaborn
 plotly
 st-pages
 scipy
-glob
