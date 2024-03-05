@@ -5,8 +5,7 @@ import folium
 from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 
-real_estate_df=pd.read_csv('data/부산항 창고_6개 구역 전체 파일.csv',
-                           index_col=0)
+real_estate_df=pd.read_csv('data/부산항 창고_6개 구역 전체 파일.csv', index_col=0)
 
 # 매매가  단위변환(1) : 억으로 끝나는 값
 def convert_to_manwon(s):
