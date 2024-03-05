@@ -8,6 +8,7 @@ from plotly.subplots import make_subplots
 
 st.set_page_config(layout='wide')
 st.title('년도 / 분기별 선용품 품목 시각화')
+st.markdown('''-----''')
 popular_ship_goods_18_df=pd.read_csv('data/2018년도 분기별 품목 합.csv')
 popular_ship_goods_18_df['년도']=2018
 popular_ship_goods_19_df=pd.read_csv('data/2019년도 분기별 품목 합.csv')
