@@ -7,6 +7,7 @@ from streamlit_folium import st_folium
 
 st.set_page_config(layout='wide')
 st.title('업종별 기업 리스트 소싱')
+st.markdown('''-----''')
 company_list_df=pd.read_csv('data/카테고리별 기업 리스트 최종본.csv').drop('Unnamed: 0',axis=1)
 company_type_list=list(set(company_list_df['카테고리']))
 company_type=st.multiselect('업종 선택',
@@ -26,30 +27,27 @@ st.download_button(
 
 def folium_gen():
     # 지도 생성
-    map = folium.Map(location=[37.5502, 126.982], zoom_start=7)
+    map = folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
 
-    # 각 카테고리별로 마커 클러스터 관리를 위한 딕셔너리 생성
-    category_marker_clusters = {}
+    # 마커 클러스터 생성
+    marker_cluster = MarkerCluster().add_to(map)
 
-    # 카테고리에 따라 색상을 지정
-    colors = {
-        '육류': 'red',
-        '식품': 'blue',
-        '주류': 'green',
-        '기타': 'purple'
+    # 카테고리에 따라 마커 지정
+    icon_paths = {
+        '육류': '../img/meat.png',
+        '식품': '../img/food.png',
+        '주류': '../img/beer.png',
+        '기타': '../img/etc.png'
     }
 
-    # cate 데이터프레임에 대한 마커 생성
+    # 각 업체별로 마커 생성
     for index, row in company_selected_type.iterrows():
-        category = row['카테고리']
-        tooltip = \
-            f"카테고리: {row['카테고리']}<br>회사명: {row['회사명']}<br>주소: {row['주소']}<br>전화번호: {row['전화번호']}"
-        
-        if category not in category_marker_clusters:
-            category_marker_clusters[category] = MarkerCluster().add_to(map)
-        
-        folium.Marker([row['lat'], row['lng']], tooltip=tooltip, icon=folium.Icon(color='blue'))\
-            .add_to(category_marker_clusters[category])
+        tooltip = f"카테고리: {row['카테고리']}<br>회사명: {row['회사명']}<br>주소: {row['주소']}<br>전화번호: {row['전화번호']}"
+        icon_path = icon_paths.get(row['카테고리'], '../img/default.png')
+        icon = folium.CustomIcon(icon_path, icon_size=(40, 40))
+        folium.Marker([row['lat'], row['lng']], 
+                    icon=icon,
+                    tooltip=tooltip).add_to(marker_cluster)
     return map
 
-st_folium(folium_gen())
+st_folium(folium_gen(),use_container_width=True)
