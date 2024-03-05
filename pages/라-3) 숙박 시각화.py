@@ -7,6 +7,8 @@ from streamlit_folium import st_folium
 from PIL import Image
 
 st.set_page_config(layout='wide')
+st.title('숙박업소 시각화')
+st.markdown('''-----''')
 df1= pd.read_excel('data/평점 4이상 숙박업소.xlsx')
 @st.cache_data
 def hotel_folium_gen():

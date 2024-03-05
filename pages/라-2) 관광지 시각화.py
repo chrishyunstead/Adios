@@ -7,6 +7,8 @@ from streamlit_folium import st_folium
 from PIL import Image
 
 st.set_page_config(layout='wide')
+st.title('관광지 시각화')
+st.markdown('''-----''')
 df2=pd.read_excel('data/관광지 위경도.xlsx')
 @st.cache_data
 def place_folium_gen():
