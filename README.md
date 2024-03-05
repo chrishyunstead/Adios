@@ -14,6 +14,10 @@
     - 정현수 : 데이터 수집, 데이터 가공, 시각화(워드클라우드, 공실데이터), 상관분석
     - 김성일 : 데이터 수집, 데이터 가공, 시각화(워드클라우드, 공실데이터), 상관분석, Streamlit 배포
     - 신대근 : 데이터 수집, 데이터 가공, 시각화(워드클라우드, Osmnx), 상관분석
+
+* 사용 언어 및 라이브러리
+    - 언어 : Python
+        - 라이브러리 : Pandas, Numpy, Prophet, Networkx, Selenium, Beautifulsoup, matplotlib, Plotly, Flourish, Osmnx, Folium, Googlemaps, Streamlit
 -----
 # 스트림릿 앱 링크
 * https://busanportservice.streamlit.app/
