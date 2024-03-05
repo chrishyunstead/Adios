@@ -24,6 +24,7 @@ st.markdown(
 point=[35.078205, 128.832975]
 
 # 1. 부산신항 - 감천문화마을 - 오륙도 스카이워크 - 생강나무 - 부산신항(2시간 33분)
+@st.cache_data
 def folium_gen_1_1():
 # # 지역 설정
     busan = "부산광역시, 대한민국"
@@ -55,4 +56,4 @@ def folium_gen_1_1():
                                  route=route4,color='blue')
     return folium4
 
-st_folium(folium_gen_1_1())
+st_folium(folium_gen_1_1(),use_container_width=True)
