@@ -1,7 +1,7 @@
 import streamlit as st
 st.set_page_config(layout='wide')
 st.markdown('''
-      # 1. 개요
+      # □ 개요
          ## 가) 대한민국 수출입 물동량
          1) 23년 2분기 대한민국 수출입 물동량은 전년 동기대비(3억 1,849만 톤) 0.5% 감소한 3억 1,695만 톤으로 집계되었으며 연안 물동량은 전년 동기(6,084만 톤) 대비 7.6% 감소한 5,622만 톤으로 집계 되었고, 부산항은 전년 동기대비 –0.1% 감소했지만 매년 물동량이 증가되는 추세임.
          2) https://public.flourish.studio/visualisation/17012869/
