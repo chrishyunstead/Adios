@@ -1,4 +1,5 @@
 import streamlit as st
+st.set_page_config(layout='wide')
 st.markdown('''
       # 1. 내용
          ## 가) 대한민국 수출입 물동량
