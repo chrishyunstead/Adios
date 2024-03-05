@@ -104,7 +104,7 @@ def folium_gen():
         location = location_dict.get(i)
         radius = radius_dict.get(i, 80)
         folium.CircleMarker(location=location, radius=radius, fill=True, color = None, 
-                            fill_color = 'yellow', fill_opacity = '25%', tooltip=tooltip)\
+                            fill_color = '#fafa91', fill_opacity = '25%', tooltip=tooltip)\
                                 .add_to(map)
         
     folium.Marker(location=[35.0809179, 128.8349832], tooltip='부산신항만', 
