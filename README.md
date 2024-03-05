@@ -17,7 +17,8 @@
 
 * 사용 언어 및 라이브러리
     - 언어 : Python
-        - 라이브러리 : Pandas, Numpy, Prophet, Networkx, Selenium, Beautifulsoup, matplotlib, Plotly, Flourish, Osmnx, Folium, Googlemaps, Streamlit
+        - 라이브러리
+        * Pandas, Numpy, Prophet, Networkx, Selenium, Beautifulsoup, matplotlib, Plotly, Flourish, Osmnx, Folium, Googlemaps, Streamlit
 -----
 # 스트림릿 앱 링크
 * https://busanportservice.streamlit.app/
