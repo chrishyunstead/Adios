@@ -153,11 +153,7 @@ def osmnx_gen7_5():
 osmnx7_5=osmnx_gen7_5()
 
 # 3일 추천코스
-'''
-* 1day: 부산신항 - 감천문화마을 - 진미식당 - 해동용궁사 - 종필이집 - 디노호텔
-* 2day: 디노호텔 - 부산시민공원 - 대하가야밀면 - 이기대 농바위 - 시민카츠 - 디노호텔
-* 3day: 디노호텔 - 용두산공원 - 생강나무 - 오시리아 해안산책로 - 유원 - 부산신항
-'''
+
 @st.cache_data
 def osmnx_gen_3d_1():
     targetPoint = ox.graph_from_point(point, network_type="drive",dist=15000)
@@ -228,11 +224,7 @@ def osmnx_gen_3d_1():
     return fig
 osmnx_3d_1=osmnx_gen_3d_1()
 
-'''
-* 1day: 부산신항 - 해동용궁사 - 유원 - 감천문화마을 - 생강나무 - 디노호텔
-* 2day: 디노호텔 - 이기대 농바위 - 시민카츠 - 부산시민공원 - 대하가야 밀면 - 디노호텔
-* 3day: 디노호텔 - 오시리아 해안산책로 - 종필이집 - 용두산공원 - 진미식당 - 부산신항
-'''
+
 @st.cache_data
 def osmnx_gen_3d_2():
     targetPoint = ox.graph_from_point(point, network_type="drive",dist=15000)
@@ -301,11 +293,7 @@ def osmnx_gen_3d_2():
     return fig
 osmnx_3d_2=osmnx_gen_3d_2()
 
-'''
-* 1day: 부산신항 - 오륙도 스카이워크 - 대영정 - 해동용궁사 - 말자씨부엌 - 지엔비호텔
-* 2day: 지엔비호텔 - 다이아몬드 타워 - 대하가야밀면 - 이기대 농바위 - 상짱 - 지엔비호텔
-* 3day: 지엔비호텔 - 태종대 유원지 - 생강나무 - 역사의 디오라마 - 홍문 - 부산신항
-'''
+
 @st.cache_data
 def osmnx_gen_3d_3():
     targetPoint = ox.graph_from_point(point, network_type="drive",dist=15000)
@@ -375,11 +363,7 @@ def osmnx_gen_3d_3():
     return fig
 osmnx_3d_3=osmnx_gen_3d_3()
 
-'''
-* 1day: 부산신항 - 역사의 디오라마 - 홍문 - 해동용궁사 - 대하가야밀면 - 지엔비호텔
-* 2day: 지엔비호텔 - 다이아몬드 타워 - 상짱 -  - 상짱 - 이기대 농바위- 지엔비호텔
-* 3day: 지엔비호텔 - 오륙도 스카이워크 - 대영정 - 태종대유원지 - 말자씨부엌 - 부산신항
-'''
+
 @st.cache_data
 def osmnx_gen_3d_4():
     targetPoint = ox.graph_from_point(point, network_type="drive",dist=15000)
