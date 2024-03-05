@@ -480,4 +480,4 @@ course_select=st.selectbox('코스 선택',course_df_time_select['코스'])
 course_final=course_df_time_select.query(f"코스=='{course_select}'")\
     .reset_index().drop('index',axis=1)
 
-st.pyplot(course_final['코스'][0],use_container_width=True)
+st.pyplot(course_final['Fig'][0],use_container_width=True)
