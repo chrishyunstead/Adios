@@ -23,4 +23,4 @@ def rest_folium_gen():
         except:
             pass
     return map
-st_folium(map,use_container_width=True)
+st_folium(rest_folium_gen(),use_container_width=True)
