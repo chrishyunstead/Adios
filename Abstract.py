@@ -1,11 +1,5 @@
 import streamlit as st
-from st_pages import Page, add_page_title, show_pages
 st.set_page_config(layout='wide')
-
-html = """
-    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17012869"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-"""
-
 st.markdown('''
       # 1. 내용
          ## 가) 대한민국 수출입 물동량
@@ -19,7 +13,3 @@ st.markdown('''
          3) 위 상황을 고려하여 외국인 선원을 대상으로 ‘온라인 선용품 구매 플랫폼’과 ‘체류시간별 부산관광코스 정보제공 서비스’를 기획 하였고, 서비스별 필요한 과업에 따라 데이터 분석을 진행했음.
          4) 이미지
 ''')
-
-'''markdown![](https://flo.uri.sh/visualisation/17012869/embed)'''
-
-st.markdown(html, unsafe_allow_html=True)
