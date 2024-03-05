@@ -474,4 +474,4 @@ course_df=pd.DataFrame({
              '3일','3일','3일','3일'],
     'Fig':osmnx_fig
 })
-st.dataframe(course_df.iloc[:,:1])
+st.dataframe(course_df.iloc[:,:1],use_container_width=True)
