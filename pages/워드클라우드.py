@@ -1,10 +1,7 @@
-import streamlit as st
+'''import streamlit as st
 import glob
 
 st.title('품목별 워드 클라우드')
-st.markdown('''
------
-''')
 img_list=glob.glob('img/*워드클라우드.png')
 
 keyword=[]
@@ -20,4 +17,4 @@ def img_gen():
         else: pass
     return img
 
-st.image(img_gen(),width=550)
+st.image(img_gen(),width=550)'''
