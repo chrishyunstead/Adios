@@ -103,7 +103,7 @@ def folium_gen():
                 
         location = location_dict.get(i)
         radius = radius_dict.get(i, 80)
-        folium.CircleMarker(location=location, radius=radius, fill='#f53b3b', color = None, 
+        folium.CircleMarker(location=location, radius=radius, fill=True, color = '#f53b3b', 
                             fill_color = 'yellow', fill_opacity = '25%', tooltip=tooltip)\
                                 .add_to(map)
         
