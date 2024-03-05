@@ -469,13 +469,13 @@ courses=['부산신항 - 감천문화마을 - 오륙도 스카이워크 - 생강
              * 2day: 지엔비호텔 - 다이아몬드 타워 - 상짱 -  - 상짱 - 이기대 농바위- 지엔비호텔  \
              * 3day: 지엔비호텔 - 오륙도 스카이워크 - 대영정 - 태종대유원지 - 말자씨부엌 - 부산신항'][0]]
 course_df=pd.DataFrame({
-    '체류 시간':['7시간','7시간','7시간','7시간','7시간',
+    '체류시간':['7시간','7시간','7시간','7시간','7시간',
              '3일','3일','3일','3일'],
     '코스':courses,
     'Fig':osmnx_fig
 })
-time_select=st.selectbox('체류 시간 선택',list(set(course_df['체류 시간'])))
-course_df_time_select=course_df.query(f"체류 시간=={time_select}")
+time_select=st.selectbox('체류 시간 선택',list(set(course_df['체류시간'])))
+course_df_time_select=course_df.query(f"체류시간=={time_select}")
 course_select=st.selectbox('코스 선택',course_df_time_select['코스'])
 course_final=course_df_time_select.query(f"코스=={course_select}")
 
