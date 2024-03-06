@@ -40,7 +40,7 @@ title_list=[f'{select_year}년도 1분기 선용품 품목',
             f'{select_year}년도 3분기 선용품 품목',
             f'{select_year}년도 4분기 선용품 품목']
 def plotly_gen():
-    fig=make_subplots(rows=2,cols=2,column_titles=title_list)
+    fig=make_subplots(rows=2,cols=2,subplot_titles=title_list)
     fig.add_trace(go.Bar(x=df_selected['품목'],
                              y=df_selected['1분기'],
                              marker_color='#ffff00',
