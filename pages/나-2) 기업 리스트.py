@@ -12,7 +12,6 @@ company_list_df=pd.read_csv('data/카테고리별 기업 리스트 최종본.csv
 company_type_list=list(set(company_list_df['카테고리']))
 company_type=st.multiselect('업종 선택',
                             company_type_list)
-@st.cache_data
 def df_gen():
     df=company_list_df.query(f'카테고리 in {company_type}').reset_index().drop('index',axis=1)
     return df
