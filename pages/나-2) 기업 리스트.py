@@ -12,7 +12,12 @@ company_list_df=pd.read_csv('data/카테고리별 기업 리스트 최종본.csv
 company_type_list=list(set(company_list_df['카테고리']))
 company_type=st.multiselect('업종 선택',
                             company_type_list)
-company_selected_type=company_list_df.query(f'카테고리 in {company_type}').reset_index().drop('index',axis=1)
+@st.cache_data
+def df_gen():
+    df=company_list_df.query(f'카테고리 in {company_type}').reset_index().drop('index',axis=1)
+    return df
+company_selected_type=df_gen()
+
 st.dataframe(company_selected_type,
              use_container_width=True,
              height=600)
@@ -25,7 +30,7 @@ st.download_button(
     mime='text/csv'
 )
 
-@st.cache_data
+
 def folium_gen():
     map = folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
 
