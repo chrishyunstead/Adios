@@ -25,15 +25,14 @@ st.download_button(
     mime='text/csv'
 )
 
-@st.cache_data
-def folium_gen():
-    map = folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
+
+map = folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
 
     # 마커 클러스터 생성
-    marker_cluster = MarkerCluster().add_to(map)
+marker_cluster = MarkerCluster().add_to(map)
 
     # 카테고리에 따라 마커 지정
-    icon_paths = {
+icon_paths = {
         '육류': 'icon/meat.png',
         '식품': 'icon/food.png',
         '주류': 'icon/beer.png',
@@ -41,13 +40,12 @@ def folium_gen():
     }
 
     # 각 업체별로 마커 생성
-    for index, row in company_selected_type.iterrows():
+for index, row in company_selected_type.iterrows():
         tooltip = f"카테고리: {row['카테고리']}<br>회사명: {row['회사명']}<br>주소: {row['주소']}<br>전화번호: {row['전화번호']}"
         icon_path = icon_paths.get(row['카테고리'], 'icon/default.png')
         icon = folium.CustomIcon(icon_path, icon_size=(40, 40))
         folium.Marker([row['lat'], row['lng']], 
                     icon=icon,
                     tooltip=tooltip).add_to(marker_cluster)
-    return map
 
-st_folium(folium_gen(),use_container_width=True)
+st_folium(map,use_container_width=True)
