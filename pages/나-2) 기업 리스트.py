@@ -56,6 +56,6 @@ def folium_gen():
         folium.Marker([row['lat'], row['lng']], 
                     icon=icon,
                     tooltip=tooltip).add_to(marker_cluster)
-    return st_folium(map,use_container_width=True)
+    return map
 
-folium_gen()
+st_folium(folium_gen(),use_container_width=True)
