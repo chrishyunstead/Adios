@@ -24,6 +24,9 @@
 #### 5.산출물
 ##### (1) 스트림릿 앱 링크
 * https://busanportservice.streamlit.app/
+##### (2) giHub
+* https://busanportservice.streamlit.app/
+
 -----
 #### Udate Log
 * Deploy_date : 2024/03/05
