@@ -25,12 +25,6 @@ st.download_button(
     mime='text/csv'
 )
 
-# 지도 생성
-@st.cache_data
-def base_folium_gen():
-    map=folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
-    return map
-
 @st.cache_data
 def folium_gen():
     map = folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
