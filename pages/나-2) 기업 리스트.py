@@ -25,9 +25,14 @@ st.download_button(
     mime='text/csv'
 )
 
+# 지도 생성
+@st.cache_data
+def base_folium_gen():
+    map=folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
+    return map
+
 def folium_gen():
-    # 지도 생성
-    map = folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
+    map = base_folium_gen()
 
     # 마커 클러스터 생성
     marker_cluster = MarkerCluster().add_to(map)
