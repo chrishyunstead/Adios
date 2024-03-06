@@ -35,7 +35,7 @@ def base_map_gen():
     return folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
 map=base_map_gen()
 
-
+@st.cache_data
 def folium_gen():
     # 마커 클러스터 생성
     marker_cluster = MarkerCluster().add_to(map)
@@ -56,6 +56,6 @@ def folium_gen():
         folium.Marker([row['lat'], row['lng']], 
                     icon=icon,
                     tooltip=tooltip).add_to(marker_cluster)
-    return map
+    return st_folium(map,use_container_width=True)
 
-st_folium(folium_gen(),use_container_width=True)
+folium_gen()
