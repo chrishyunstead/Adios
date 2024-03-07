@@ -30,7 +30,7 @@ st.download_button(
 )
 
 # 성능향상을 위한 캐싱
-@st.cache_resource
+@st.cache_data
 def folium_gen():
     # 지도 생성
     map=folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
