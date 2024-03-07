@@ -12,4 +12,3 @@ with col1:
     st.image('img/stayed_time_describe.png',use_column_width=True)
 with col2:
     st.image('img/yearly_stayed_time_mean.png',use_column_width=True)
-st.markdown('''### 3. 년도별 체류시간의 집계를 위해, 데이터 전처리 후 describe() 함수를 적용하여 최소/최대/평균 체류시간을 분석했음.''')
