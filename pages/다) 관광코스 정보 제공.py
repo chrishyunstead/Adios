@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 st.image('img/나).png')
 st.markdown(
     '''
@@ -6,5 +7,5 @@ st.markdown(
         ### 2. 외국인 선원의 체류시간 파악을 위해 가-2) 화물처리실적-체류시간 상관분석 을 위해 수집한 부산항 체류시간 데이터를 활용함.
     '''
 )
-st.image([['img/stayed_time_describe.png','img/yearly_stayed_time_mean.png']],caption='이미지:describe')
+st.image(np.array['img/stayed_time_describe.png','img/yearly_stayed_time_mean.png'],caption='이미지:describe')
 st.markdown('''### 3. 년도별 체류시간의 집계를 위해, 데이터 전처리 후 describe() 함수를 적용하여 최소/최대/평균 체류시간을 분석했음.''')
