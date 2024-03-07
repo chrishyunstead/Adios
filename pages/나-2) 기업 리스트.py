@@ -29,14 +29,11 @@ st.download_button(
     mime='text/csv'
 )
 
-# 지도 생성 및 성능향상을 위한 캐싱
-@st.cache_data
-def base_map_gen():
-    return folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
-map=base_map_gen()
-
-@st.cache_data
+# 성능향상을 위한 캐싱
+@st.cache
 def folium_gen():
+    # 지도 생성
+    map=folium.Map(location=[36.071009,127.8292126], zoom_start=6.5, tiles='CartoDB positron')
     # 마커 클러스터 생성
     marker_cluster = MarkerCluster().add_to(map)
 
