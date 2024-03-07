@@ -7,8 +7,5 @@ st.markdown(
         ### 2. 외국인 선원의 체류시간 파악을 위해 가-2) 화물처리실적-체류시간 상관분석 을 위해 수집한 부산항 체류시간 데이터를 활용함.
     '''
 )
-col1, col2= st.columns(['이미지:describe', '연도별 평균체류시간'])
-with col1:
-    st.image('img/stayed_time_describe.png',use_column_width=True)
-with col2:
-    st.image('img/yearly_stayed_time_mean.png',use_column_width=True)
+st.image('img/time_combined.png',caption='이미지:describe\t\t이미지:년도별 평균체류시간')
+st.markdown('''### 3. 년도별 체류시간의 집계를 위해, 데이터 전처리 후 describe() 함수를 적용하여 최소/최대/평균 체류시간을 분석했음''')
