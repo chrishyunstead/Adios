@@ -15,7 +15,7 @@ st.markdown('''
 ''')
 show_pages(
     [
-        Section(name='가) 개요'),
+        Page('Abstract.py','가) 개요',':book:'),
         Page('sub_pages/가-1) 물동량 - 화물 처리실적 상관분석.py','물동량 - 화물처리실적',':chicken:'),
         Page('sub_pages/가-2) 화물 처리실적 - 체류시간 상관분석.py','화물처리실적 - 체류시간',':pig:')
     ]
