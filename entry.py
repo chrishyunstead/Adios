@@ -1,4 +1,6 @@
+import streamlit as st
 from st_pages import Page,Section,show_pages
+st.title('ㅎㅇ')
 show_pages=(
     [
         Page('main/Abstract.py','가) 개요',':book:'),
