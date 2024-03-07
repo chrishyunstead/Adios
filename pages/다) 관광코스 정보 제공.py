@@ -1,4 +1,4 @@
-import stremlit as st
+import streamlit as st
 st.image('img/stayed_time_describe.png',caption='체류시간.describe()')
 st.markdown(
     '''
