@@ -46,7 +46,7 @@
 #### 5.산출물
 ##### (1) 스트림릿 앱
 * 링크 :https://busanportservice.streamlit.app/
-##### (2) giHub
+##### (2) gitHub
 * https://busanportservice.streamlit.app/
 
 -----
