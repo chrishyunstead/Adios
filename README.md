@@ -44,10 +44,9 @@
 * __rawData와 가공 Data 는  각 Before 또는 After 디렉토리에 저장한다__
 -----
 #### 5.산출물
-##### (1) 스트림릿 앱
+##### 스트림릿 앱
 * 링크 :https://busanportservice.streamlit.app/
-##### (2) gitHub
-* https://busanportservice.streamlit.app/
+
 
 -----
 #### Udate Log
